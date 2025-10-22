@@ -1,0 +1,143 @@
+
+name: Emperical Gaussian
+description: Three turbines using emperical Gaussian model
+floris_version: v4
+
+logging:
+  console:
+    enable: true
+    level: WARNING
+  file:
+    enable: false
+    level: WARNING
+
+solver:
+  type: turbine_grid
+  turbine_grid_points: 3
+
+farm:
+  layout_x:
+  - 566.41925   
+  - 0.
+  - 1146.63983133
+  - 1264.29571942
+  - 674.8562572
+  - 1104.81615979
+  - 1881.62106367
+  - 1945.77093813
+  - 2637.62246013
+  - 2253.61442737
+  - 3457.91598728
+  - 3374.09467115
+  - 4565.30378793
+  - 3994.26290783
+  - 1095.00713839
+  - 2540.29059041
+  - 2977.018382
+  - 2599.6725906
+  - 3532.72532971
+  - 4309.86585462
+  - 3932.8082506
+  layout_y:
+  - 546.14317026
+  - 1461.95686665
+  - 0.
+  - 1505.271253
+  - 2431.24223052
+  - 3887.04174561
+  - 619.72467653
+  - 2440.977167
+  - 1270.23557988
+  - 3926.92636852
+  - 1614.88667628
+  - 3156.73956947
+  - 2064.40939892
+  - 2823.05550393
+  - 5753.53353587
+  - 7708.37782091
+  - 8888.35928206
+  - 10376.4684385
+  - 10186.71494057
+  - 10383.83870878
+  - 11680.77763174
+  turbine_type:
+  - nrel_5MW
+
+flow_field:
+  air_density: 1.225
+  reference_wind_height: -1 # -1 is code for use the hub height
+  turbulence_intensities:
+  - 0.06
+  wind_directions:
+  - 270.0
+  wind_shear: 0.12
+  wind_speeds:
+  - 8.0
+  wind_veer: 0.0
+
+wake:
+  model_strings:
+    combination_model: sosfs
+    deflection_model: empirical_gauss
+    turbulence_model: wake_induced_mixing
+    velocity_model: empirical_gauss
+
+  enable_secondary_steering: false
+  enable_yaw_added_recovery: true
+  enable_transverse_velocities: false
+  enable_active_wake_mixing: false
+
+  wake_deflection_parameters:
+    gauss:
+      ad: 0.0
+      alpha: 0.58
+      bd: 0.0
+      beta: 0.077
+      dm: 1.0
+      ka: 0.38
+      kb: 0.004
+    jimenez:
+      ad: 0.0
+      bd: 0.0
+      kd: 0.05
+    empirical_gauss:
+      horizontal_deflection_gain_D: 3.0
+      vertical_deflection_gain_D: -1
+      deflection_rate: 30
+      mixing_gain_deflection: 0.0
+      yaw_added_mixing_gain: 0.0
+
+  wake_velocity_parameters:
+    cc:
+      a_s: 0.179367259
+      b_s: 0.0118889215
+      c_s1: 0.0563691592
+      c_s2: 0.13290157
+      a_f: 3.11
+      b_f: -0.68
+      c_f: 2.41
+      alpha_mod: 1.0
+    gauss:
+      alpha: 0.58
+      beta: 0.077
+      ka: 0.38
+      kb: 0.004
+    jensen:
+      we: 0.05
+    empirical_gauss:
+      wake_expansion_rates:
+      - 0.023
+      - 0.008
+      breakpoints_D:
+      - 10
+      sigma_0_D: 0.28
+      smoothing_length_D: 2.0
+      mixing_gain_velocity: 2.0
+  wake_turbulence_parameters:
+    crespo_hernandez:
+      initial: 0.1
+      constant: 0.5
+      ai: 0.8
+      downstream: -0.32
+    wake_induced_mixing:
+      atmospheric_ti_gain: 0.0
