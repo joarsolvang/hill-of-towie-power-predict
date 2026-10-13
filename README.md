@@ -2,7 +2,7 @@
 
 This repository contains the workings towards a submission to the [Hill of Towie Wind Turbine Power Prediction](https://www.kaggle.com/competitions/hill-of-towie-wind-turbine-power-prediction) kaggle competition. 
 
-A notebook containing a starting point for a submission can be found in [examples/predict_power.ipynb](examples/predict_power.ipynb). This script uses the [HistGradientBoostingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html) and some feature engineering.
+A notebook containing a starting point for a submission can be found in [notebooks/predict_power.ipynb](notebooks/predict_power.ipynb). This script uses the [HistGradientBoostingRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.HistGradientBoostingRegressor.html) and some feature engineering.
 
 Work is ongoing to identify weaknesses in the model and introduce additional features. The current aim is to tune a wake model, available through ['floris'](https://github.com/NREL/floris), using the operational data. The intention is to add a theoretical twin to the features to help it identify reduced operating modes and downtime. 
 
